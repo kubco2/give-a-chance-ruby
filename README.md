@@ -1,5 +1,7 @@
 # RAILS APP
 
+Views must fulfill some requirements otherwise its just up to you.
+
 [demo on heroku](http://rails-du-demo.herokuapp.com/)
 
 **Full description on lecture !!**
@@ -9,8 +11,10 @@
 After creating new rails app  
 gem 'rubocop'  
 
+Copy .rubocop.yml to app root
+
 add to Rakefile:
-```
+```ruby
 require 'rubocop/rake_task'
 
 RuboCop::RakeTask.new(:rubocop) do |task|
@@ -78,6 +82,9 @@ Has 4 fields:
 	* this field displays current tags as string (separated by ",")
 	* user input is separated by "," or " "(white space) and stripped ("ahoj, ako sa mas" becomes tags: ['ahoj', 'ako', 'sa', 'mas'])
 * text area - body - element_id="post_body"
+
+Return full error messages
+Validate that post has at least one tag, if not, display error message "**must have at least one tag**"
 
 ### Post delete
 on post deletion all unused tags are removed (tags that has no posts left)
