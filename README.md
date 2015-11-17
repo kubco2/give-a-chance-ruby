@@ -4,6 +4,21 @@
 
 **Full description on lecture !!**
 
+
+## Init
+After creating new rails app  
+gem 'rubocop'  
+
+add to Rakefile:
+```
+require 'rubocop/rake_task'
+
+RuboCop::RakeTask.new(:rubocop) do |task|
+  task.patterns = ['app/models', 'app/controllers', 'app/helpers']
+  task.fail_on_error = false
+end
+```
+
 ## Models
 Post 
  * author - string (validated presence)
