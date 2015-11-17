@@ -6,6 +6,7 @@ Views must fulfill some requirements otherwise its just up to you.
 
 **Full description on lecture !!**
 
+# !!! Heroku has new pricing, free versions must be down couple of hours a day, so the demo may be unavailable for some period of time !!!
 
 ## Init
 After creating new rails app  
@@ -106,6 +107,12 @@ bundle exec rake rubocop
 ````
 
 # Submit
+Add a post to [demo](http://rails-du-demo.herokuapp.com/posts/new) with
+* author: "your UCO"
+* title: "HW-RAILS-URL"
+* body: "URL to your heroku app"
+* tags: "submitted"
+
 Add README.md to your app root containing your app url (on heroku).
 
 Pack with:
