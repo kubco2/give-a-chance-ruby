@@ -84,7 +84,7 @@ Has 4 fields:
 	* user input is separated by "," or " "(white space) and stripped ("ahoj, ako sa mas" becomes tags: ['ahoj', 'ako', 'sa', 'mas'])
 * text area - body - element_id="post_body"
 
-Return full error messages
+Return full error messages  
 Validate that post has at least one tag, if not, display error message "**must have at least one tag**"
 
 ### Post delete
