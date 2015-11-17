@@ -1,4 +1,4 @@
-# RAILS APP
+# RAILS APP + Deployment
 
 Views must fulfill some requirements otherwise its just up to you.
 
@@ -93,3 +93,24 @@ on post deletion all unused tags are removed (tags that has no posts left)
 focus on SQL selecting - optimize requests  
 split code - controller actions have no more than 10 lines of code  
 google - dont write something that is already written for you
+
+# Deploy
+Part of your task is to deploy your running application to Heroku (free instance).  
+Read the [manual](https://devcenter.heroku.com/articles/getting-started-with-rails4)
+
+
+# Rubocop
+Test with rubocop before submitting
+````
+bundle exec rake rubocop
+````
+
+# Submit
+Add README.md to your app root containing your app url (on heroku).
+
+Pack with:
+````
+tar czf ukol.tar.gz *
+````
+
+Submit to:
