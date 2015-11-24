@@ -10,7 +10,9 @@ Views must fulfill some requirements otherwise its just up to you.
 
 ## Init
 After creating new rails app  
-gem 'rubocop'  
+```ruby
+gem 'rubocop', require: false  
+```
 
 Copy .rubocop.yml to app root
 
