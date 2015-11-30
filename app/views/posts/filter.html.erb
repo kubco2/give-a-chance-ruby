@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Listing Posts</h1>
+<p><%= link_to("All", posts_path) %> or by tags: <% @tags.each do |tag| %><%= link_to(tag[:name], posts_path + '/filter/' + tag[:name]) %> <% end %></p>
+<table border=1>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr ID="post-row-<%= post.id %>">
+        <td class="post-author"><%= post.author %></td>
+        <td class="post-title"><%= post.title %></td>
+        <td class="post-body"><%= post.body %></td>
+        <td class="post-tags"><%= post.tags_string %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
