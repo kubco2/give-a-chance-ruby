@@ -2,6 +2,7 @@
 <table border=1>
   <thead>
     <tr>
+      <th>Avatar</th>
       <th>Mail</th>
       <th>created</th>
       <th>confirmed</th>
@@ -11,6 +12,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr ID="user-row-<%= user.id %>">
+        <td class="user-avatar"><%= image_tag user.avatar.url(:thumb) %></td>
         <td class="user-email"><%= user.email %></td>
         <td class="user-created_at"><%= user.created_at %></td>
         <td>

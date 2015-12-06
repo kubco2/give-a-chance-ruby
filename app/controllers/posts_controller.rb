@@ -27,15 +27,15 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    raise ActionController::RoutingError.new('Forbidden') if current_user.nil? || cannot?(:manage, @post)
+    can_manage_post
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    raise ActionController::RoutingError.new('Forbidden') if current_user.nil? || cannot?(:write, :posts)
+    can_create
     @post = Post.new(post_params)
-    @post.user = current_user if current_user
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    raise ActionController::RoutingError.new('Forbidden') if current_user.nil? || cannot?(:manage, @post)
+    can_manage_post
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -67,7 +67,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    raise ActionController::RoutingError.new('Forbidden') if current_user.nil? || cannot?(:manage, @post)
+    can_manage_post
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
@@ -99,5 +99,17 @@ class PostsController < ApplicationController
 
   def sorted_tags
     Tag.all.map { |tag| { :name => tag.name, :count => tag.posts.count } }.sort! { |a, b| a[:count] <=> b[:count] }
+  end
+
+  # raise exception if cannot write posts
+  def can_create
+    raise ActionController::RoutingError 'Forbidden' if current_user.nil? || cannot?(:write, :posts)
+    true
+  end
+
+  # raise exception if cannot manage
+  def can_manage_post
+    raise ActionController::RoutingError 'Forbidden' if current_user.nil? || cannot?(:manage, @post)
+    true
   end
 end

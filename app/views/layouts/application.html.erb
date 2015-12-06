@@ -9,6 +9,7 @@
 <body>
   <% if current_user %>
     <%= link_to "Sign out", destroy_user_session_path(), :method => :delete %> 
+    <%= link_to "Edit profile", edit_user_registration_path() %>
     <%= link_to "Posts", root_path() %> 
     <% if current_user.has_role? "admin" %>
       <%= link_to "Users", userss_index_path %>

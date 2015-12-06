@@ -67,3 +67,4 @@ gem 'better_errors'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+gem "paperclip", "~> 4.3"
