@@ -40,7 +40,10 @@ group :development, :test do
   gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem "pry"
+
+  # hw 6
+  gem 'pry'
+  gem 'letter_opener'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -58,6 +61,9 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-
+# hw 6
 gem 'exception_notification'
-gem "better_errors"
+gem 'better_errors'
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'

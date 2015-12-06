@@ -76,4 +76,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: "railshw6_432673@zoho.com",
+    password: "frehttydbtrsh",
+    address: "smtp.zoho.com",
+    port: 587
+  }
+  config.action_mailer.default_url_options = { host: 'gentle-temple-7946.herokuapp.com', port: 80 }
+  
 end
