@@ -6,6 +6,7 @@
 <table border=1>
   <thead>
     <tr>
+      <th>Avatar</th>
       <th>Author</th>
       <th>Title</th>
       <th>Body</th>
@@ -17,7 +18,8 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr ID="post-row-<%= post.id %>">
-        <td class="post-author"><% if post.user && post.user.avatar %><%= image_tag post.user.avatar.url(:thumb) %><% end %><%= post.author %></td>
+        <td class="user-avatar"><%= image_tag post.user.avatar.url(:thumb) %></td>
+        <td class="post-author"><%= post.author %></td>
         <td class="post-title"><%= post.title %></td>
         <td class="post-body"><%= post.body %></td>
         <td class="post-tags"><%= post.tags_string %></td>
