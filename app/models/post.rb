@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   resourcify
   has_and_belongs_to_many :tags
+  belongs_to :user
   validates :author, presence: true
   validates :title, presence: true
   validates :body, presence: true

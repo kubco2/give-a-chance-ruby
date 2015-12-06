@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :userss, :only => [:index]
   resources :posts do
     collection do
       get 'filter/:tag_name' => 'posts#filter'
     end
   end
-  resources :tags
   # get 'posts/filter/:tag_name' => 'posts#filter'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

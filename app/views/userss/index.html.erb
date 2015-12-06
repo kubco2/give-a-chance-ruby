@@ -1,0 +1,26 @@
+<h1>Listing users</h1>
+<table border=1>
+  <thead>
+    <tr>
+      <th>Mail</th>
+      <th>created</th>
+      <th>confirmed</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr ID="user-row-<%= user.id %>">
+        <td class="user-email"><%= user.email %></td>
+        <td class="user-created_at"><%= user.created_at %></td>
+        <td>
+          <% if user.confirmed_at.nil? %>
+            <%= link_to 'Confirm', user_confirmation_path + '?confirmation_token=' + user.confirmation_token, target: "_blank" %>
+          <% else %>
+            <%= user.confirmed_at %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
